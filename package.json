@@ -1,13 +1,14 @@
 {
   "name": "ya-bump",
-  "version": "0.0.0",
+  "version": " 0.0.1",
   "description": "Yet Another module to Bump, Commit and Publish",
   "main": "src/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "release", "bump"
+    "release",
+    "bump"
   ],
   "author": "Leonardo Balter",
   "license": "MIT",
@@ -16,6 +17,7 @@
     "grunt-contrib-jshint": "0.10.0"
   },
   "dependencies": {
+    "clipboard": "0.1.1",
     "commander": "2.2.0",
     "semver": "2.3.1"
   }
