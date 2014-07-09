@@ -32,6 +32,11 @@ module.exports = function ( settings ) {
 	steps = [
 		function() {
 
+			// No writing, no fear, no checking
+			if ( settings.clipboard ) {
+				return nextStep();
+			}
+
 			// Check if package.json is clean;
 			exec( "git status --porcelain package.json", "package.json is clean.",
 				function( result ) {
@@ -58,12 +63,22 @@ module.exports = function ( settings ) {
 					data[ dataIndex ] = ( +data[ dataIndex ] ) + 1;
 
 					version = semver.valid( settings.bump ) ? settings.bump : data.join( "." );
+					version = version.trim();
 
 					return ' "version": "' + version + '",';
 				}
 
 				return line;
 			});
+
+			if ( settings.clipboard ) {
+				require( "copy-paste" ).copy( version );
+
+				console.log( "Bumps to: " + version );
+
+				// The End, clipboard just copies the new version to the clipboard
+				return;
+			}
 
 			fs.writeFile( "package.json", pkg.join( "\n" ), function( err ) {
 				if ( err ) {
@@ -73,13 +88,6 @@ module.exports = function ( settings ) {
 				console.log( "package.json new version set to " + version + "." );
 				nextStep();
 			});
-		},
-		function() {
-			if ( settings.clipboard ) {
-				require( "clipboard" ).write( version );
-			}
-
-			nextStep();
 		},
 		function() {
 
