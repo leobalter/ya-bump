@@ -2,7 +2,8 @@
   "name": "ya-bump",
  "version": "0.0.4",
   "description": "Yet Another module to Bump, Commit and Publish",
-  "main": "src/cli.js",
+  "main": "src/bump.js",
+  "repository": "git://github.com/leobalter/ya-bump.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,8 @@
     "commander": "2.2.0",
     "copy-paste": "0.3.0",
     "semver": "2.3.1"
+  },
+  "bin": {
+    "ya-bump": "src/cli.js"
   }
 }
