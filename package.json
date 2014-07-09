@@ -1,6 +1,6 @@
 {
   "name": "ya-bump",
-  "version": "  0.0.2",
+ "version": "0.0.4",
   "description": "Yet Another module to Bump, Commit and Publish",
   "main": "src/cli.js",
   "scripts": {
