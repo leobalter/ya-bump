@@ -4,10 +4,12 @@ var settings,
 	path = require( "path" ),
 	fs = require( "fs" ),
 	program = require( "commander" ),
-	semver = require( "semver" );
+	chalk = require( "chalk" ),
+	semver = require( "semver" ),
+	version = require( "../package.json" ).version;
 
 program
-	.version( require( "../package.json" ).version )
+	.version( chalk.blue( "ya-bump", chalk.bold( "v" + version ) ) )
 	.option( "-P, --publish", "Enable publishing to NPM" )
 	.option( "-C, --commit", "Enable commiting changes" )
 	.option( "-c, --clipboard", "Copy the new version on NPM" )
