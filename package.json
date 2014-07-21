@@ -1,6 +1,6 @@
 {
   "name": "ya-bump",
-  "version": "0.0.6",
+ "version": "0.0.7",
   "description": "Yet Another module to Bump, Commit and Publish",
   "main": "src/bump.js",
   "repository": "git://github.com/leobalter/ya-bump.git",
