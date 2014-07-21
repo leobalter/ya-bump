@@ -39,7 +39,7 @@ module.exports = function ( settings ) {
             }
 
             // Check if package.json is clean;
-            exec( "git status --porcelain package.json", "package.json is clean.",
+            exec( "git status --porcelain package.json", "package.json must be clean from git HEAD.",
                 function( result ) {
                     return result.toString().length > 0;
                 });
